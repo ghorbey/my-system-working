@@ -1,0 +1,37 @@
+name: Release Creation
+
+on: push
+
+jobs:
+  build-patreon:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules/
+        key: v1-npm-deps-${{ hashFiles('package-lock.json') }}
+        restore-keys: v1-npm-deps-
+
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
+    - run: npm ci
+    - run: npm run build
+    - run: cp ./dist/system.json ./system.json
+    - run: mkdir release
+    - run: mv dist release/pbta && cp system.json release/system.json
+    - run: cd release && zip -q pbta.zip -r pbta && rm -rf pbta && cd ../
