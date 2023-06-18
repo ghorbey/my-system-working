@@ -9,3 +9,4 @@ node_modules/
 dist/
 /my-system/
 /my-system.zip
+/.vscode
