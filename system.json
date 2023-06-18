@@ -1,0 +1,54 @@
+{
+  "name": "my-system",
+  "id": "my-system",
+  "title": "My system",
+  "description": "Run games for My System in Foundry VTT!",
+  "version": "0.7.1",
+  "minimumCoreVersion": "10",
+  "compatibleCoreVersion": "10",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "11.301",
+    "maximum": "11"
+  },
+  "authors": [
+    {
+      "name": "GhorghorBey"
+    }
+  ],
+  "esmodules": [
+    "module/my-system.js"
+  ],
+  "styles": [
+    "styles/lib/codemirror.css",
+    "styles/lib/codemirror.material-palenight.css",
+    "styles/lib/tagify.css",
+    "styles/dist/my-system.css"
+  ],
+  "scripts": [
+    "scripts/lib/tagify.min.js",
+    "scripts/lib/codemirror.js",
+    "scripts/lib/codemirror.toml.js",
+    "scripts/lib/codemirror.loadmode.js",
+    "scripts/lib/toml-node.js"
+  ],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français (French)",
+      "path": "lang/fr.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": null,
+  "secondaryTokenAttribute": null,
+  "initiative": "1d20",
+  "socket": true
+}

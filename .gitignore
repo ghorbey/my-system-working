@@ -1,0 +1,11 @@
+# IDE
+.idea/
+.vs/
+foundry.js
+jsconfig.json
+
+# Node Modules
+node_modules/
+dist/
+/my-system/
+/my-system.zip
